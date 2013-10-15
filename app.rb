@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'pp'
 require 'awesome_print'
 
 before do
@@ -8,7 +7,8 @@ before do
   logger.info("Method: #{request.request_method}")
   logger.info("  Path: #{request.path_info}")
   logger.info(" Query: #{request.query_string}")
-  logger.info("Params: #{ap(params)}")
+  logger.info("Params: ")
+  logger.info(ap(params))
   logger.info("  Body: \n#{input}")
   env['rack.input'].rewind
 end
